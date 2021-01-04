@@ -5,4 +5,3 @@ RSpec.describe MicroManager do
     expect(MicroManager::VERSION).not_to be nil
   end
 end
-

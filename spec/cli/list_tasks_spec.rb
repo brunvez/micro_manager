@@ -17,14 +17,14 @@ module MicroManager
 
         today_s = Date.today.to_s
         expect(result).to eq(
-          <<-TABLE.chomp
-┌─────┬─────────────┬────────────┐
-│     │ Description │ Due        │
-├─────┼─────────────┼────────────┤
-│ [ ] │ Task 1      │ #{today_s} │
-│ [X] │ Task 2      │ #{today_s} │
-└─────┴─────────────┴────────────┘
-        TABLE
+          <<~TABLE.chomp
+            ┌─────┬─────────────┬────────────┐
+            │     │ Description │ Due        │
+            ├─────┼─────────────┼────────────┤
+            │ [ ] │ Task 1      │ #{today_s} │
+            │ [X] │ Task 2      │ #{today_s} │
+            └─────┴─────────────┴────────────┘
+          TABLE
         )
       end
     end

@@ -23,4 +23,3 @@ module MicroManager
     end
   end
 end
-

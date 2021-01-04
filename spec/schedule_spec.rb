@@ -30,9 +30,9 @@ module MicroManager
       other_task = Task.new(description: "Extra setup", due: Date.today)
       tasks = [desired_task, other_task]
       schedule = Schedule.new(tasks: tasks)
-      
+
       desired_task.complete
-      
+
       expect(schedule.tasks_completed(on: Date.today)).to eq([desired_task])
     end
 
@@ -46,4 +46,3 @@ module MicroManager
     end
   end
 end
-

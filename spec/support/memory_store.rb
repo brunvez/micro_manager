@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class MemoryStore 
-  def initialize 
+class MemoryStore
+  def initialize
     @content = {}
   end
 

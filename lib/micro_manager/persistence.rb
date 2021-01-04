@@ -9,7 +9,7 @@ module MicroManager
     def initialize(config)
       @config = config
     end
-    
+
     def save(schedule, serializer: YAML, writer: File)
       file = config.save_location
       serialized_schedule = serializer.dump(schedule)
