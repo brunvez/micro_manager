@@ -14,13 +14,12 @@ module MicroManager
 
     def outstanding_tasks
       tasks
-        .select { |task| !task.completed? }
+        .reject(&:completed?)
         .sort_by(&:due)
     end
-    
+
     def tasks_completed(on:)
       tasks.select { |task| task.completed? && task.completed_on == on }
     end
   end
 end
-

@@ -14,11 +14,11 @@ module MicroManager
 
         expect(command).to be_a(ShowHelp)
         expect(result).to eq(
-          <<-HELP
-Usage: just [task-description] [options]
-    -d, --due [DATE]                 Date to which the task is due, defaults to Date.today. Supports relative dates (e.g. 1-day, 2-weeks, etc)
-    -l, --list-tasks                 Lists all due tasks and tasks completed today
-    -h, --help                       Prints this help
+          <<~HELP
+            Usage: just [task-description] [options]
+                -d, --due [DATE]                 Date to which the task is due, defaults to Date.today. Supports relative dates (e.g. 1-day, 2-weeks, etc)
+                -l, --list-tasks                 Lists all due tasks and tasks completed today
+                -h, --help                       Prints this help
           HELP
         )
       end

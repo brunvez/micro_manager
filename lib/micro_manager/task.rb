@@ -11,7 +11,7 @@ module MicroManager
     end
 
     def complete
-      @completed = true 
+      @completed = true
       @completed_on = Date.today
     end
 
@@ -24,4 +24,3 @@ module MicroManager
     end
   end
 end
-
