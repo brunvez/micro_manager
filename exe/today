@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "../lib/cli"
+
+config = MicroManager::Config.new
+persistence = MicroManager::Persistence.new(config)
+schedule = persistence.recover || MicroManager::Schedule.new
+
+command = MicroManager::CLI::CommandBuilder.new(context: :today).build(ARGV)
+result = command.run(schedule: schedule)
+puts result
+
+persistence.save(schedule)
+
