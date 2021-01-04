@@ -4,10 +4,10 @@ require_relative "../../lib/cli"
 
 module MicroManager
   module CLI
-    RSpec.describe AddTodayTask do
-      it "adds a task for today to a schedule" do
+    RSpec.describe AddTask do
+      it "adds a task for today to a schedule when not given a due date" do
         schedule = Schedule.new
-        command = AddTodayTask.new(description: "Something to do today")
+        command = AddTask.new(description: "Something to do today")
 
         command.run(schedule: schedule)
 
@@ -20,7 +20,7 @@ module MicroManager
 
       it "returns a success message" do
         schedule = Schedule.new
-        command = AddTodayTask.new(description: "Something to do today")
+        command = AddTask.new(description: "Something to do today")
 
         result = command.run(schedule: schedule)
 

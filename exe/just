@@ -7,7 +7,7 @@ config = MicroManager::Config.new
 persistence = MicroManager::Persistence.new(config)
 schedule = persistence.recover || MicroManager::Schedule.new
 
-command = MicroManager::CLI::CommandBuilder.new(context: :today).build(ARGV)
+command = MicroManager::CLI::CommandBuilder.new.build(ARGV)
 result = command.run(schedule: schedule)
 puts result
 
