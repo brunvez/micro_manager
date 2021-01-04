@@ -11,4 +11,5 @@
 .rspec_status
 
 micro_manager-*.gem
+*.swp
 
