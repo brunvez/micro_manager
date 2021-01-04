@@ -7,19 +7,7 @@ module MicroManager
     class CommandBuilder
       def build(input)
         params = parse_input(input)
-        build_for_today(params)
-      end
 
-      private
-
-      def parse_input(input)
-        params = {}
-        rest = parser.parse(input, into: params)
-
-        params.merge(rest: rest)
-      end
-
-      def build_for_today(params)
         if params[:help]
           ShowHelp.new(parser)
         elsif params[:"list-tasks"] || params[:rest].empty?
@@ -29,6 +17,15 @@ module MicroManager
           task.merge!(due: params[:due]) if params[:due]
           AddTask.new(**task)
         end
+      end
+
+      private
+
+      def parse_input(input)
+        params = {}
+        rest = parser.parse(input, into: params)
+
+        params.merge(rest: rest)
       end
 
       def parser

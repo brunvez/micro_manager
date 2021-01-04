@@ -20,9 +20,9 @@ module MicroManager
 
       def self.date_offset(n, modifier)
         modifier_days = {
-          'day' => 1,
-          'week' => 7,
-          'month' => 30
+          "day" => 1,
+          "week" => 7,
+          "month" => 30
         } 
 
         n.to_i * modifier_days[modifier]
