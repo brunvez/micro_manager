@@ -13,7 +13,7 @@ module MicroManager
     end
 
     it "can be completed" do
-      expect { task.complete }.to change { task.completed }.from(false).to(true)
+      expect { task.complete }.to change { task.completed? }.from(false).to(true)
     end
 
     it "knows the completion date" do

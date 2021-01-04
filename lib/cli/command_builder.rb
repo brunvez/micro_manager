@@ -20,8 +20,10 @@ module MicroManager
       private
 
       def build_for_today(options)
-        if options.length == 1
-          AddTodayTask.new(description: options.first)
+        if options.empty?
+          ListTasks.new
+        else
+          AddTodayTask.new(description: options.join(" "))
         end
       end
     end

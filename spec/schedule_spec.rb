@@ -32,7 +32,7 @@ module MicroManager
       
       desired_task.complete
       
-      expect(schedule.task_completed(on: Date.today)).to eq([desired_task])
+      expect(schedule.tasks_completed(on: Date.today)).to eq([desired_task])
     end
 
     it "adds tasks as outstanding" do

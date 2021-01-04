@@ -2,7 +2,7 @@
 
 module MicroManager
   class Task
-    attr_reader :description, :due, :completed, :completed_on
+    attr_reader :description, :due, :completed_on
 
     def initialize(description:, due:)
       @description = description
@@ -15,8 +15,12 @@ module MicroManager
       @completed_on = Date.today
     end
 
+    def completed?
+      @completed
+    end
+
     def ==(other)
-      description == other.description && completed == other.completed
+      description == other.description && completed? == other.completed?
     end
   end
 end

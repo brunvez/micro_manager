@@ -21,7 +21,7 @@ module MicroManager
       recovered_schedule = persistence.recover(reader: store)
 
       expect(recovered_schedule.outstanding_tasks).to eq(tasks.first(2))
-      expect(recovered_schedule.task_completed(on: Date.today)).to eq([tasks.last])
+      expect(recovered_schedule.tasks_completed(on: Date.today)).to eq([tasks.last])
     end
   end
 end
