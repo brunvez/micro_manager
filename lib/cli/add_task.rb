@@ -2,15 +2,16 @@
 
 module MicroManager
   module CLI
-    class AddTodayTask
-      private attr_reader :description
+    class AddTask
+      private attr_reader :description, :due
 
-      def initialize(description:)
+      def initialize(description:, due: Date.today)
         @description = description
+        @due = due
       end
 
       def run(schedule:)
-        schedule.add_task(description: description, due: Date.today)
+        schedule.add_task(description: description, due: due)
 
         "Task added successfully"
       end

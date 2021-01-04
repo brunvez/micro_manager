@@ -5,35 +5,44 @@ require_relative "../../lib/cli"
 module MicroManager
   module CLI
     RSpec.describe CommandBuilder do
-      context "with a today context" do
-        it "builds a ListTasks command when there are no arguments" do
-          builder = CommandBuilder.new(context: :today)
-          input = []
+      it "builds a ListTasks command when there are no arguments" do
+        builder = CommandBuilder.new
+        input = []
 
-          command = builder.build(input)
+        command = builder.build(input)
 
-          expect(command).to be_a(ListTasks)
-        end
+        expect(command).to be_a(ListTasks)
+      end
 
-        it "builds an AddTaskToday command when there is a description" do
-          builder = CommandBuilder.new(context: :today)
-          input = ["Code some stuff"]
+      it "builds an AddTask command when there is a description" do
+        builder = CommandBuilder.new
+        input = ["Code some stuff"]
 
-          command = builder.build(input)
+        command = builder.build(input)
 
-          expect(command).to be_a(AddTodayTask)
-        end
+        expect(command).to be_a(AddTask)
+      end
 
-        it "joins arguments for AddTaskToday" do
-          builder = CommandBuilder.new(context: :today)
-          input = %w[Code some stuff]
-          schedule = Schedule.new
+      it "has a defualt of today for the due date" do
+        builder = CommandBuilder.new
+        input = ["Code some stuff"]
+        schedule = spy(Schedule)
 
-          command = builder.build(input)
-          command.run(schedule: schedule)
+        command = builder.build(input)
+        command.run(schedule: schedule)
 
-          expect(schedule.outstanding_tasks.last.description).to eq("Code some stuff")
-        end
+        expect(schedule).to have_received(:add_task).with(description: "Code some stuff", due: Date.today)
+      end
+
+      it "joins arguments for AddTask" do
+        builder = CommandBuilder.new
+        input = %w[Code some stuff]
+        schedule = spy(Schedule)
+
+        command = builder.build(input)
+        command.run(schedule: schedule)
+
+        expect(schedule).to have_received(:add_task).with(description: "Code some stuff", due: Date.today)
       end
     end
   end

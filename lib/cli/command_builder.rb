@@ -5,16 +5,11 @@ module MicroManager
     class CommandBuilder
       private attr_reader :context
 
-      def initialize(context:)
-        @context = context
+      def initialize
       end
 
       def build(options)
-        # antipattern rising, seems to want to delegate to context
-        case context
-        when :today
-          build_for_today(options)
-        end
+        build_for_today(options)
       end
 
       private
@@ -23,7 +18,7 @@ module MicroManager
         if options.empty?
           ListTasks.new
         else
-          AddTodayTask.new(description: options.join(" "))
+          AddTask.new(description: options.join(" "))
         end
       end
     end
