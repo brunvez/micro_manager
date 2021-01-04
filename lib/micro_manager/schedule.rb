@@ -14,7 +14,7 @@ module MicroManager
 
     def outstanding_tasks
       tasks
-        .select { |task| !task.completed? && task.due <= Date.today }
+        .select { |task| !task.completed? }
         .sort_by(&:due)
     end
     

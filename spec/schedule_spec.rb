@@ -5,12 +5,13 @@ module MicroManager
     it "has a list of outstanding tasks" do
       outstanding_tasks = [
         Task.new(description: "Task 1", due: Date.today.prev_day),
-        Task.new(description: "Task 2", due: Date.today)
+        Task.new(description: "Task 2", due: Date.today),
+        Task.new(description: "Task 3", due: Date.today.next_day)
       ]
-      future_tasks = [
-        Task.new(description: "Task 2", due: Date.today.next_day)
-      ]
-      schedule = Schedule.new(tasks: outstanding_tasks + future_tasks)
+      completed_task = Task.new(description: "Task 4", due: Date.today)
+      schedule = Schedule.new(tasks: outstanding_tasks + [completed_task])
+
+      completed_task.complete
 
       expect(schedule.outstanding_tasks).to eq(outstanding_tasks)
     end
