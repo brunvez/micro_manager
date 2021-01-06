@@ -18,7 +18,7 @@ MicroManager adds a `just` command, which can be used to add tasks like:
 $ just Add what you want to do --due 1-week # you can also use a date or leave it blank to default to today
 ```
 
-List tasks
+List tasks:
 
 ```bash
 $ just --list-tasks # or -l
