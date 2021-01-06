@@ -1,28 +1,36 @@
 # MicroManager
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/micro_manager`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gems is aimed at improving productivity by allowing to create quick TO-DO tasks from the terminal.
+The name is a pun on [micro-management](https://en.wikipedia.org/wiki/Micromanagement) and it's usage is also inspired on
+a word they usually say a lot "Just do this feature, it should be easy", "Oh, it's just a text change. It shouldn't take long"
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'micro_manager'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
+Install it as:
 
     $ gem install micro_manager
 
 ## Usage
 
-TODO: Write usage instructions here
+MicroManager adds a `just` command, which can be used to add tasks like:
+
+```bash
+$ just Add what you want to do --due 1-week # you can also use a date or leave it blank to default to today
+```
+
+List tasks:
+
+```bash
+$ just --list-tasks # or -l
+```
+
+And finally complete tasks:
+
+```bash
+$ just --complete-task
+```
+
+For more detail run `just --help`
 
 ## Development
 
@@ -32,4 +40,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/micro_manager.
+Bug reports and pull requests are welcome on GitHub at https://github.com/brunvez/micro_manager.
