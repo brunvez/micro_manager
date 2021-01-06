@@ -11,7 +11,7 @@ module MicroManager
       end
 
       def self.parse_relative_date(string)
-        regex = /(?<n>\d+)-(?<modifier>(day|week|month))/
+        regex = /(?<n>\d+)-(?<modifier>day|week|month)/
         matches = string.match(regex)
         return unless matches
 

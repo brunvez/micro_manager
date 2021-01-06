@@ -13,7 +13,7 @@ module MicroManager
       def run(schedule:)
         schedule.add_task(description: description, due: due)
 
-        "Task added successfully"
+        Result.new { "Task added successfully" }
       end
     end
   end

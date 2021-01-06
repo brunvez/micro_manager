@@ -10,6 +10,8 @@ module MicroManager
 
         if params[:help]
           ShowHelp.new(parser)
+        elsif params[:"complete-task"]
+          CompleteTask.new
         elsif params[:"list-tasks"] || params[:rest].empty?
           ListTasks.new
         else
@@ -34,6 +36,7 @@ module MicroManager
             RelativeDate.parse(date)
           end
           opts.on("-d", "--due [DATE]", RelativeDate, "Date to which the task is due, defaults to Date.today. Supports relative dates (e.g. 1-day, 2-weeks, etc)")
+          opts.on("-c", "--complete-task", "Prompts on a task to mark as completed")
           opts.on("-l", "--list-tasks", "Lists all due tasks and tasks completed today")
           opts.on("-h", "--help", "Prints this help")
         end

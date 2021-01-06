@@ -9,6 +9,6 @@ schedule = persistence.recover || MicroManager::Schedule.new
 
 command = MicroManager::CLI::CommandBuilder.new.build(ARGV)
 result = command.run(schedule: schedule)
-puts result
+print result.render
 
 persistence.save(schedule)

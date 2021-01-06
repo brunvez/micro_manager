@@ -17,6 +17,7 @@ module MicroManager
           <<~HELP
             Usage: just [task-description] [options]
                 -d, --due [DATE]                 Date to which the task is due, defaults to Date.today. Supports relative dates (e.g. 1-day, 2-weeks, etc)
+                -c, --complete-task              Prompts on a task to mark as completed
                 -l, --list-tasks                 Lists all due tasks and tasks completed today
                 -h, --help                       Prints this help
           HELP
@@ -39,6 +40,15 @@ module MicroManager
         command = builder.build(input)
 
         expect(command).to be_a(ListTasks)
+      end
+
+      it "builds a CompleteTask command when given --complete-task input" do
+        builder = CommandBuilder.new
+        input = ["--complete-task"]
+
+        command = builder.build(input)
+
+        expect(command).to be_a(CompleteTask)
       end
 
       it "builds an AddTask command when there is a description" do
