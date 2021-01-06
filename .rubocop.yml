@@ -15,7 +15,9 @@ Metrics/BlockLength:
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: true
   IgnoreNotImplementedMethods: true
-Lint/MixedRegexpCaptureTypes:
-  Enabled: false
 Gemspec/RequiredRubyVersion:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
   Enabled: false

@@ -24,7 +24,7 @@ module MicroManager
 
         result = command.run(schedule: schedule)
 
-        expect(result).to eq("Task added successfully")
+        expect(result.render).to eq("Task added successfully")
       end
     end
   end

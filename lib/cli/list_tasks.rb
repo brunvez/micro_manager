@@ -9,7 +9,7 @@ module MicroManager
         table = TTY::Table.new(header: ["", "Description", "Due"], rows: rows)
         renderer = TTY::Table::Renderer::Unicode.new(table, padding: [0, 1])
 
-        renderer.render
+        Result.new { renderer.render }
       end
 
       private

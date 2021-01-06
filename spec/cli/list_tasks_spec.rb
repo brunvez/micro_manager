@@ -16,7 +16,7 @@ module MicroManager
         result = command.run(schedule: schedule)
 
         today_s = Date.today.to_s
-        expect(result).to eq(
+        expect(result.render).to eq(
           <<~TABLE.chomp
             ┌─────┬─────────────┬────────────┐
             │     │ Description │ Due        │
