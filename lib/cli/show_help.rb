@@ -3,8 +3,6 @@
 module MicroManager
   module CLI
     class ShowHelp
-      private attr_reader :parser
-
       def initialize(parser)
         @parser = parser
       end
@@ -14,6 +12,10 @@ module MicroManager
 
         parser.help
       end
+
+      private
+
+      attr_reader :parser
     end
   end
 end

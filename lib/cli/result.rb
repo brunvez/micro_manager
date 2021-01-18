@@ -3,8 +3,6 @@
 module MicroManager
   module CLI
     class Result
-      private attr_reader :render_block
-
       def initialize(&block)
         raise ArgumentError, "A block is required" unless block_given?
 
@@ -14,6 +12,10 @@ module MicroManager
       def render
         @render_block.call
       end
+
+      private
+
+      attr_reader :render_block
     end
   end
 end

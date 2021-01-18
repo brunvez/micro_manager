@@ -4,8 +4,6 @@ require "yaml"
 
 module MicroManager
   class Persistence
-    private attr_reader :config
-
     def initialize(config)
       @config = config
     end
@@ -20,5 +18,9 @@ module MicroManager
       content = reader.read(config.save_location)
       serializer.load(content)
     end
+
+    private
+
+    attr_reader :config
   end
 end

@@ -5,8 +5,6 @@ require "tty-prompt"
 module MicroManager
   module CLI
     class CompleteTask
-      private attr_reader :prompt
-
       def initialize(prompt: TTY::Prompt.new)
         @prompt = prompt
       end
@@ -23,6 +21,10 @@ module MicroManager
           nil
         end
       end
+
+      private
+
+      attr_reader :prompt
     end
   end
 end
