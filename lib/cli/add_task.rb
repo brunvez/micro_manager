@@ -3,8 +3,6 @@
 module MicroManager
   module CLI
     class AddTask
-      private attr_reader :description, :due
-
       def initialize(description:, due: Date.today)
         @description = description
         @due = due
@@ -15,6 +13,10 @@ module MicroManager
 
         Result.new { "Task added successfully" }
       end
+
+      private
+
+      attr_reader :description, :due
     end
   end
 end
