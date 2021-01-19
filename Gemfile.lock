@@ -1,7 +1,9 @@
 PATH
   remote: .
   specs:
-    micro_manager (1.0.0)
+    micro_manager (1.0.1)
+      tty-prompt (~> 0.23.0)
+      tty-table (~> 0.12.0)
 
 GEM
   remote: https://rubygems.org/
@@ -73,8 +75,6 @@ DEPENDENCIES
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.7)
-  tty-prompt (~> 0.23.0)
-  tty-table (~> 0.12.0)
 
 BUNDLED WITH
    2.2.3
