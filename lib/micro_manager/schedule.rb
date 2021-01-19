@@ -2,8 +2,6 @@
 
 module MicroManager
   class Schedule
-    private attr_reader :tasks
-
     def initialize(tasks: [])
       @tasks = tasks
     end
@@ -21,5 +19,9 @@ module MicroManager
     def tasks_completed(on:)
       tasks.select { |task| task.completed? && task.completed_on == on }
     end
+
+    private
+
+    attr_reader :tasks
   end
 end
