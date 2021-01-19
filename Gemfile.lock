@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    micro_manager (1.0.1)
+    micro_manager (1.0.3)
       tty-prompt (~> 0.23.0)
       tty-table (~> 0.12.0)
 
